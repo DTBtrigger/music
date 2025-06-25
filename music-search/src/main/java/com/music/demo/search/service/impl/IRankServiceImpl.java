@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
+import java.util.concurrent.TimeUnit;
 
 @Service
 @RequiredArgsConstructor
@@ -27,6 +28,7 @@ public class IRankServiceImpl implements IRankService {
         for (Music music : musicList) {
             stringRedisTemplate.opsForZSet().add("rank",music.getId(),music.getPlayCount());
         }
+//        stringRedisTemplate.expire("rank",7, TimeUnit.DAYS);
         Set<String> musicIdList =  stringRedisTemplate.opsForZSet().reverseRange("rank",0,2);
         List<Music> musicList1 = new ArrayList<>();
         for (String musicId : musicIdList) {

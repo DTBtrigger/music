@@ -1,4 +1,4 @@
-package com.music.demo.login.controller;
+package com.music.demo.user.controller;
 
 import com.alibaba.nacos.api.naming.pojo.healthcheck.impl.Http;
 import com.music.demo.common.result.HttpResult;

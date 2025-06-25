@@ -1,7 +1,7 @@
-package com.music.demo.login.controller;
+package com.music.demo.user.controller;
 
 import com.music.demo.common.result.HttpResult;
-import com.music.demo.login.service.ISettingService;
+import com.music.demo.user.service.ISettingService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;

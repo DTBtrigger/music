@@ -1,4 +1,4 @@
-package com.music.demo.login.mapper;
+package com.music.demo.user.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.music.demo.domain.entity.User;

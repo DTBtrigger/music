@@ -2,7 +2,6 @@
 <project version="4">
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$/music-admin/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/music-admin/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/music-common/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/music-common/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/music-domain/src/main/java" charset="UTF-8" />
@@ -12,7 +11,6 @@
     <file url="file://$PROJECT_DIR$/music-like/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/music-like/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/music-list/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/music-list/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/music-login/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/music-message/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/music-message/src/main/resources" charset="UTF-8" />
@@ -23,7 +21,6 @@
     <file url="file://$PROJECT_DIR$/music-singer/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/music-singer/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/music-upload/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/music-upload/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/music-user/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/resources" charset="UTF-8" />

@@ -1,11 +1,11 @@
-package com.music.demo.login.service.impl;
+package com.music.demo.user.service.impl;
 
 import cn.hutool.crypto.SmUtil;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.music.demo.common.exception.user.UserSettingException;
 import com.music.demo.domain.entity.User;
-import com.music.demo.login.mapper.UserMapper;
-import com.music.demo.login.service.ISettingService;
+import com.music.demo.user.mapper.UserMapper;
+import com.music.demo.user.service.ISettingService;
 import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;
 import org.springframework.beans.factory.annotation.Value;
