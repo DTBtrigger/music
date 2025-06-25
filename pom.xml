@@ -9,12 +9,10 @@
     <version>1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
     <modules>
-        <module>music-login</module>
         <module>music-admin</module>
-        <module>music-login</module>
         <module>music-music</module>
         <module>music-singer</module>
-        <module>music-setting</module>
+        <module>music-user</module>
         <module>music-message</module>
         <module>music-upload</module>
         <module>music-list</module>
@@ -22,7 +20,14 @@
         <module>music-domain</module>
         <module>music-common</module>
         <module>music-gateway</module>
+        <module>music-login</module>
+        <module>music-search</module>
     </modules>
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>3.3.10</version>
+    </parent>
 
     <properties>
         <maven.compiler.source>21</maven.compiler.source>
@@ -117,6 +122,16 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-redis</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.mysql</groupId>
+            <artifactId>mysql-connector-j</artifactId>
+            <scope>runtime</scope>
         </dependency>
     </dependencies>
     <!--打包插件 不是可运行的jar包-->

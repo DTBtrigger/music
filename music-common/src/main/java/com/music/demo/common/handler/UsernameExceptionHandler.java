@@ -1,8 +1,6 @@
 package com.music.demo.common.handler;
 
-import com.music.demo.common.exception.user.UserCredentialsException;
-import com.music.demo.common.exception.user.UsernameEmptyException;
-import com.music.demo.common.exception.user.UsernameNotFoundException;
+import com.music.demo.common.exception.user.*;
 import com.music.demo.common.result.HttpResult;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -23,6 +21,16 @@ public class UsernameExceptionHandler {
     }
     @ExceptionHandler(UserCredentialsException.class)
     public HttpResult<String> usernameCredentialsException(UserCredentialsException e) {
+        log.error(e.getMessage());
+        return HttpResult.failed(e.getMessage());
+    }
+    @ExceptionHandler(UserTokenException.class)
+    public HttpResult<String> userTokenException(UserTokenException e) {
+        log.error(e.getMessage());
+        return HttpResult.failed(e.getMessage());
+    }
+    @ExceptionHandler(UserSettingException.class)
+    public HttpResult<String> userSettingException(UserSettingException e) {
         log.error(e.getMessage());
         return HttpResult.failed(e.getMessage());
     }
