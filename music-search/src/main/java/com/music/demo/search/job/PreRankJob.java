@@ -26,6 +26,6 @@ public class PreRankJob extends QuartzJobBean {
     protected void executeInternal(JobExecutionContext context) throws JobExecutionException {
         log.debug("本周排名启动:{}",new Date());
         iRankService.rankMusic();
-        log.debug("本周排名记载完成...");
+        log.debug("本周排名加载完成...");
     }
 }

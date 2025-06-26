@@ -34,7 +34,7 @@ public class LoginController {
 
     @Operation(summary = "用户登录")
     @GetMapping("/login")
-    public HttpResult<String> login(HttpServletRequest request, HttpServletResponse response, String username, String password) throws JsonProcessingException {
+    public HttpResult<String> login(HttpServletResponse response, String username, String password) throws JsonProcessingException {
         User user = iLoginService.login(username, password);
 
         String token = JWT.create()
@@ -48,6 +48,8 @@ public class LoginController {
         String userStr = mapper.writeValueAsString(user);
 
         stringRedisTemplate.opsForValue().set(token, userStr, 30, TimeUnit.MINUTES);
+        response.addHeader("token",token);
+        response.addHeader("role",user.getRole());
 
         return HttpResult.success(token);
     }

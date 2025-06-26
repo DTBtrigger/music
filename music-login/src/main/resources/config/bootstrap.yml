@@ -1,6 +1,6 @@
 spring:
   application:
-    name: user-service
+    name: login-service
   cloud:
     nacos:
       config:

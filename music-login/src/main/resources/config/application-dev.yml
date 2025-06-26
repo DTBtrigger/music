@@ -1,0 +1,22 @@
+mypath: D:\college\学科\大三下课程设计\
+my:
+  secretkey: sfne
+server:
+  port: 30001
+spring:
+  application:
+    name: login-service
+  data:
+    redis:
+      host: 120.46.159.231
+      username: default
+      password: 2046
+      database: 59
+logging:
+  level:
+    com.music.demo: debug
+knife4j:
+  basic:
+    enable: true
+  setting:
+    language: zh_cn
