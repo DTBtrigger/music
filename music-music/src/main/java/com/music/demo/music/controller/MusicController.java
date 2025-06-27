@@ -5,11 +5,14 @@ import com.music.demo.domain.entity.Music;
 import com.music.demo.music.service.MusicService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import jakarta.servlet.http.HttpServletResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.web.bind.annotation.*;
 
+import java.io.*;
 import java.util.List;
 @Slf4j
 @RestController
@@ -20,6 +23,9 @@ public class MusicController {
     private MusicService musicService;
     @Autowired
     private StringRedisTemplate stringRedisTemplate;
+
+    @Value("${mypath}")
+    private String path;
     @Operation(summary = "添加歌曲")
     @PostMapping("/addMusic")
     public HttpResult<String> addList(@RequestBody Music music) {
@@ -78,4 +84,5 @@ public class MusicController {
     public HttpResult<List<Music>> collectMusics(@RequestHeader("uid") String uid) {
         return HttpResult.success(musicService.findCollectMusics(uid));
     }
+
 }

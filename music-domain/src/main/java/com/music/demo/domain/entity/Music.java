@@ -52,4 +52,5 @@ public class Music {
 
     @TableField("music_collect_count")
     private Integer collectCount;
+
 }

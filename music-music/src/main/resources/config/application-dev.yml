@@ -1,4 +1,4 @@
-
+mypath: D:\college\学科\大三下课程设计\
 spring:
   application:
     name: music-service

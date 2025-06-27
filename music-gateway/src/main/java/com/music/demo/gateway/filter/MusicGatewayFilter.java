@@ -1,10 +1,14 @@
 package com.music.demo.gateway.filter;
 
+import com.auth0.jwt.JWT;
+import com.auth0.jwt.algorithms.Algorithm;
+import com.auth0.jwt.interfaces.DecodedJWT;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.music.demo.common.result.HttpResult;
 import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.gateway.filter.GatewayFilterChain;
 import org.springframework.cloud.gateway.filter.GlobalFilter;
 import org.springframework.cloud.gateway.filter.NettyWriteResponseFilter;
@@ -31,16 +35,21 @@ public class MusicGatewayFilter implements GlobalFilter, Ordered {
 
     private final StringRedisTemplate stringRedisTemplate;
 
+//    @Value("${my.secretkey}")
+//    private  String SALT;
+
 
     @SneakyThrows
     @Override
     public Mono<Void> filter(ServerWebExchange exchange, GatewayFilterChain chain) {
-        log.debug("来到网关过滤器中...");
+        log.debug("来到admin网关过滤器中...");
 
         ServerHttpRequest request = exchange.getRequest(); //请求
         ServerHttpResponse response = exchange.getResponse(); //响应
 
         System.err.println(request.getURI());
+
+//        request.s
 
         String path = request.getURI().getPath();
         if (path.contains("/api/login") || path.contains("v3/api-docs")) {
@@ -68,7 +77,12 @@ public class MusicGatewayFilter implements GlobalFilter, Ordered {
 
         }
 
+//        获取token，解密token，从token中获取userID，然后去redis找对应userID的token
+//        如果是他人盗用了token，那么
         String token = hs.get(0);
+//        DecodedJWT decodedJWT = JWT.require(Algorithm.HMAC256(SALT)).build().verify(token);
+//        String userId = decodedJWT.getClaim("userId").asString();
+
         if (!stringRedisTemplate.hasKey(token)) {
 //            异常抛出
             response.getHeaders().add("Content-Type", "application/json;charset=UTF-8");
@@ -79,6 +93,8 @@ public class MusicGatewayFilter implements GlobalFilter, Ordered {
                             .getBytes(StandardCharsets.UTF_8));
             return response.writeWith(Mono.just(dataBuffer));
         }
+
+
         return chain.filter(exchange);
     }
 

@@ -44,10 +44,10 @@ public class LoginController {
                 )
                 .sign(Algorithm.HMAC256(SALT));
 
-        ObjectMapper mapper = new ObjectMapper();
-        String userStr = mapper.writeValueAsString(user);
+//        ObjectMapper mapper = new ObjectMapper();
+//        String userStr = mapper.writeValueAsString(user);
 
-        stringRedisTemplate.opsForValue().set(token, userStr, 30, TimeUnit.MINUTES);
+        stringRedisTemplate.opsForValue().set(token, user.getId(), 30, TimeUnit.MINUTES);
         response.addHeader("token",token);
         response.addHeader("role",user.getRole());
 
