@@ -1,12 +1,14 @@
 package com.music.demo.login.service.impl;
 
 import cn.hutool.crypto.SmUtil;
+import com.alibaba.nacos.shaded.io.grpc.Status;
 import com.music.demo.common.exception.user.UserCredentialsException;
 import com.music.demo.common.exception.user.UsernameEmptyException;
 import com.music.demo.common.util.ULID;
 import com.music.demo.domain.entity.User;
 import com.music.demo.login.mapper.UserMapper;
 import com.music.demo.login.service.IRegistryService;
+import com.music.demo.login.service.ISendMailService;
 import com.music.demo.login.util.BloomFilterUtil;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -14,6 +16,7 @@ import org.springframework.stereotype.Service;
 import java.util.Date;
 import java.util.List;
 import java.util.Objects;
+import java.util.Random;
 
 @Service
 @RequiredArgsConstructor
@@ -21,6 +24,7 @@ public class IRegistryServiceImpl implements IRegistryService {
 
     private final UserMapper mapper;
     private final ULID ulid;
+    private final ISendMailService iSendMailService;
 
     @Override
     public List<User> findAll() {
@@ -29,6 +33,9 @@ public class IRegistryServiceImpl implements IRegistryService {
 
     @Override
     public void registry(User user) {
+
+
+
 
         String username = user.getUsername();
         boolean isExist = BloomFilterUtil.getInstance().contains(username);

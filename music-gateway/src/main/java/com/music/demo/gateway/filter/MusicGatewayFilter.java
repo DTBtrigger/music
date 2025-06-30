@@ -52,7 +52,7 @@ public class MusicGatewayFilter implements GlobalFilter, Ordered {
 //        request.s
 
         String path = request.getURI().getPath();
-        if (path.contains("/api/login") || path.contains("v3/api-docs")) {
+        if (path.contains("/api/login") || path.contains("v3/api-docs") || path.contains("/api/registry")) {
 //            放行
             return chain.filter(exchange);
         }

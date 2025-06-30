@@ -1,5 +1,6 @@
 package com.music.demo.user.service.impl;
 
+import cn.hutool.core.codec.Base64;
 import cn.hutool.crypto.SmUtil;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.music.demo.common.exception.user.UserSettingException;
@@ -22,6 +23,7 @@ public class ISettingServiceImpl implements ISettingService {
     private final UserMapper mapper;
     @Value("${mypath}")
     private String path;
+
 
     @Override
     public void changePassword(String username, String password, String newpassword) {
@@ -65,12 +67,18 @@ public class ISettingServiceImpl implements ISettingService {
     }
     @SneakyThrows
     @Override
-    public void uploadAvator(MultipartFile file) {
+    public void uploadAvator(String userId, MultipartFile file) {
 
 
         String fileType = file.getContentType();
         if (!fileType.contains("image")) throw new UserSettingException("文件格式异常，请选择图片");
+        String encode = Base64.encode(file.getInputStream());
+//        String codeN = SmUtil.sm3(encode);
+
+        User user = mapper.selectById(userId);
+        user.setAvatar(encode);
 //        file.transferTo(new File(path + file.getOriginalFilename()));
         file.transferTo(new File(path + file.getOriginalFilename()));
+        mapper.updateById(user);
     }
 }

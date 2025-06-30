@@ -7,6 +7,8 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import java.util.Random;
+
 @SpringBootTest
 @Slf4j
 class ILoginServiceImplTest {
@@ -25,5 +27,18 @@ class ILoginServiceImplTest {
                 .email("2732873@jsa.com")
                 .build();
         iRegistryService.registry(user);
+    }
+
+    @Test
+    void rand() {
+
+        for (int i = 0; i < 10; i++ ){
+            Random random = new Random();
+            int code = random.nextInt(90000 + 10000);
+            log.debug("$$$$$$$$$-----{}",code);
+        }
+
+
+
     }
 }

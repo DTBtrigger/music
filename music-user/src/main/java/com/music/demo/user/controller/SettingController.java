@@ -33,8 +33,8 @@ public class SettingController {
 
     @Operation(summary = "上传头像图片")
     @PostMapping("/uploadAvatar")
-    public HttpResult<String> uploadAvator(@RequestBody MultipartFile file) {
-        iSettingService.uploadAvator(file);
+    public HttpResult<String> uploadAvator(@RequestHeader String userId, @RequestBody MultipartFile file) {
+        iSettingService.uploadAvator(userId,file);
         return HttpResult.success("上传成功");
     }
 
