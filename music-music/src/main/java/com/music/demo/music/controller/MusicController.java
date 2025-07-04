@@ -6,6 +6,7 @@ import com.music.demo.music.service.MusicService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.servlet.http.HttpServletResponse;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -18,14 +19,13 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/music")
 @Tag(name = "music模块")
+@RequiredArgsConstructor
 public class MusicController {
-    @Autowired
-    private MusicService musicService;
-    @Autowired
-    private StringRedisTemplate stringRedisTemplate;
+    private final MusicService musicService;
+    private final StringRedisTemplate stringRedisTemplate;
 
-    @Value("${mypath}")
-    private String path;
+//    @Value("${mypath}")
+//    private String path;
     @Operation(summary = "添加歌曲")
     @PostMapping("/addMusic")
     public HttpResult<String> addList(@RequestBody Music music) {

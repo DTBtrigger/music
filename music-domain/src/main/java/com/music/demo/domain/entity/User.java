@@ -52,4 +52,7 @@ public class User {
 
     @TableField("user_role")
     private String role;
+
+    @TableField("user_email_enable")
+    private boolean enable;
 }

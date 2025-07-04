@@ -28,7 +28,7 @@ public class ISearchServiceImpl implements ISearchService {
             //歌手的名字，直接放入redis
             stringRedisTemplate.opsForSet().add(music.getAuthor(),music.getId());
 
-            String words = music.getAuthor() + music.getLyrics() + music.getDescription();
+            String words =music.getTitle() + music.getAuthor() + music.getLyrics() + music.getDescription();
             List<String> keyWordList = WordsUtil.getInstance().word(words);
 
             for (String keyWord : keyWordList) {

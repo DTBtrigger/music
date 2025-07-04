@@ -21,8 +21,8 @@ public class RegistryCotroller {
 
     @Operation(summary = "测试用户注册")
     @PostMapping("/registry")
-    public HttpResult<String> registry(@RequestBody User user) {
-        iRegistryService.registry(user);
+    public HttpResult<String> registry(@RequestBody User user,String code) {
+        iRegistryService.registry(user, code);
         return HttpResult.success("注册成功");
     }
 }

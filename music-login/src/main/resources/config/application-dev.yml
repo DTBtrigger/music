@@ -6,12 +6,18 @@ server:
 spring:
   application:
     name: login-service
+#  data:
+#    redis:
+#      host: 120.46.159.231
+#      username: default
+#      password: 2046
+#      database: 59
   data:
     redis:
-      host: 120.46.159.231
-      username: default
-      password: 2046
-      database: 59
+      host: localhost
+#      username: de
+#      password: 2046
+      database: 0
   mail:
     # 邮件服务器地址
     host: smtp.qq.com

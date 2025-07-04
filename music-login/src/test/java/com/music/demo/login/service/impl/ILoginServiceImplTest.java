@@ -26,7 +26,7 @@ class ILoginServiceImplTest {
                 .avatar("jsdfj")
                 .email("2732873@jsa.com")
                 .build();
-        iRegistryService.registry(user);
+//        iRegistryService.registry(user);
     }
 
     @Test

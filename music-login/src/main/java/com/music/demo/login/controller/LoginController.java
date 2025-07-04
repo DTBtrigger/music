@@ -38,7 +38,8 @@ public class LoginController {
         User user = iLoginService.login(username, password);
 
         String token = JWT.create()
-                .withClaim("username", username)
+                .withClaim("uid", user.getId())
+                .withClaim("role",user.getRole())
                 .withExpiresAt(
                         new Date(System.currentTimeMillis() + 1000*60*15)
                 )

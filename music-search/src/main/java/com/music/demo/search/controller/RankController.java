@@ -2,6 +2,8 @@ package com.music.demo.search.controller;
 
 import com.music.demo.common.result.HttpResult;
 import com.music.demo.domain.entity.Music;
+import com.music.demo.domain.entity.MusicList;
+import com.music.demo.domain.entity.User;
 import com.music.demo.search.service.IRankService;
 import com.music.demo.search.service.impl.IRankServiceImpl;
 import io.swagger.v3.oas.annotations.Operation;
@@ -22,8 +24,9 @@ public class RankController {
     private final IRankService iRankService;
 
     @Operation(summary = "根据点击量排名的榜单")
-    @GetMapping
+    @GetMapping("/countRank")
     public HttpResult<List<Music>> rankMusic() {
         return HttpResult.success(iRankService.rankMusic());
     }
+
 }

@@ -5,23 +5,23 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-public class PreLoadingUsernameJobConfig {
+public class PreLoadingRankJobConfig {
 
     /**
      * 描述任务详情对象
      * @return
      */
     @Bean
-    public JobDetail jobDetail() {
+    public JobDetail jobDetailRank() {
         return JobBuilder.newJob(PreRankJob.class)
                 .storeDurably(true)
                 .build();
     }
 
     @Bean
-    public Trigger trigger() {
+    public Trigger triggerRank() {
         return TriggerBuilder.newTrigger()
-                .forJob(jobDetail())
+                .forJob(jobDetailRank())
                 .withSchedule(CronScheduleBuilder.cronSchedule("0 01 17 * * ? *"))
                 .startNow()
                 .build();

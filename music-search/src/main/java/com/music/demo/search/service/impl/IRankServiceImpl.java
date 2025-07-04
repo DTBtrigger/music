@@ -19,7 +19,6 @@ public class IRankServiceImpl implements IRankService {
     private final MusicMapper mapper;
     private final StringRedisTemplate stringRedisTemplate;
 
-
     @Override
     public List<Music> rankMusic() {
 
